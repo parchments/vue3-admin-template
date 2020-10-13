@@ -22,8 +22,11 @@ github源码： [https://github.com/parchments/vue3-admin-template](https://git
 
 1.  安装node就不说咯，必备。此外需要安装vue-cli4代以上最新脚手架，可以通过执行如下npm 命令安装/更新脚手架版本
 
+```
 脚手架升级： npm update @vue/cli
 初次安装：   npm i @vue/cli -g
+```
+
 
 根据自己需求选择需要预先安装的插件
 
