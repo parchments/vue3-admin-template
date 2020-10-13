@@ -58,7 +58,7 @@ vue3.0全局挂载http、api、config
 顺便提一句，如果vue3.0+ts开发的话，全局挂载需要如下挂载方式
 
 在文件 main.ts 添加 带有 + 符号后代码
-
+```
 //  main.ts
 import { createApp } from "vue";
 import App from "./App.vue";
@@ -83,7 +83,7 @@ declare module "*.vue" {
 \+    $http: AxiosInstance;
 \+  }
 \+ }
-
+```
 ![](https://oscimg.oschina.net/oscnet/up-1a75a32cc5f128cd86b1cf9eb7301d1949a.gif)![](https://oscimg.oschina.net/oscnet/up-89f278693ffc1df1f55e0b417534558eed6.gif)
 
 # 2、安装并引入antd
@@ -582,4 +582,4 @@ detail 详情页面（路由传参）
 ```
 相信大家对vue3.0基础用法有了初步的认识，菜鸟的我也在不断学习中，持续更新ing  
 
-官网文档：[https://composition-api.vuejs.org/zh/](https://composition-api.vuejs.org/zh/)
+官网文档：[https://v3.cn.vuejs.org/api/application-config.html](https://v3.cn.vuejs.org/api/application-config.html)
