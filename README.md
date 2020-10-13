@@ -29,8 +29,9 @@ github源码： [https://github.com/parchments/vue3-admin-template](https://git
 
 
 根据自己需求选择需要预先安装的插件
-
+```
 vue create \[projectName\]
+```
 
 ![](https://oscimg.oschina.net/oscnet/up-1e2a18a029958c140bb3b468bf5267b66ed.png)
 
@@ -86,12 +87,13 @@ declare module "*.vue" {
 ![](https://oscimg.oschina.net/oscnet/up-1a75a32cc5f128cd86b1cf9eb7301d1949a.gif)![](https://oscimg.oschina.net/oscnet/up-89f278693ffc1df1f55e0b417534558eed6.gif)
 
 # 2、安装并引入antd
-
+```
 $ npm i --save ant-design-vue@next
+```
 //需要按需引入的话安装插件 babel-plugin-import 然后配置 babel.config.js$ npm i --save babel-plugin-import
 
 **完整引入**
-
+```
 import { createApp } from 'vue';
 import Antd from 'ant-design-vue';
 import App from './App';
@@ -136,6 +138,7 @@ module.exports = {
     \]
   \]
 }
+```
 
 目前我是用全局引入的方式引入antd，大家根据自己需求引入即可。
 
@@ -144,7 +147,7 @@ module.exports = {
 ![](https://oscimg.oschina.net/oscnet/up-5afdcdd41303d82e14b02346c1736f363c9.png)
 
 app.vue页面
-
+```
 <template>
   <div id="app">
     <router-view/>
@@ -156,11 +159,11 @@ app.vue页面
   text-align: center;
 }
 </style>
-
+```
 login页面: 涉及data定义，响应式数据、生命周期、方法调用、实例获取（即是vue2.x的this）
 
 ![](https://oscimg.oschina.net/oscnet/up-ac9fee55abcc53c2977cc4a487e0c44f4a8.png)
-
+```
 //login
 <template>
 	<div class="box">
@@ -272,14 +275,14 @@ login页面: 涉及data定义，响应式数据、生命周期、方法调用、
 		}
 	}
 </style>
-
+```
 看得出来跟vue2.x的结构已经有很大区别了，例如setup、方法使用等等，setup是Composition API的入口，Vue3.0提供的新属性，可以在setup中使用Composition API，在上文代码中我们在setup中通过reactive初始化了一个响应式数据，然后通过return返回了一个对象，对象中包含了声明的响应式数据和一个方法。  
  
 
-setup函数有两个参数，分别是props和context, setup(props,context);
+setup函数有两个参数，分别是props和context, setup(props,context);  
 
-props组件外部传入进来的属性
-
+props组件外部传入进来的属性  
+```
 export default {
   props: {
     title: {
@@ -291,17 +294,17 @@ export default {
     console.log(props.title)
   }
 }
-
-context是一个对象，里面包含了三个属性，分别是 attrs、slots、emit
+```
+context是一个对象，里面包含了三个属性，分别是 attrs、slots、emit  
 
 attrs与Vue2.0的this.$attrs是一样的，即外部传入的未在props中定义的属性。对于attrs与props一样，我们不能对attrs使用es6的解构，必须使用attrs.name的写法。
 
-slots对应的是组件的插槽，与Vue2.0的this.$slots是对应的,与props和attrs一样，slots也是不能解构的。
+slots对应的是组件的插槽，与Vue2.0的this.$slots是对应的,与props和attrs一样，slots也是不能解构的。  
 
-emit对应的是Vue2.0的this.$emit, 即对外暴露事件。
+emit对应的是Vue2.0的this.$emit, 即对外暴露事件。  
 
 home.vue页面
-
+```
 ![](https://oscimg.oschina.net/oscnet/up-0e5c5181a088f6b3bd925effb7caf816720.png)
 
 <template>
@@ -349,11 +352,11 @@ home.vue页面
 		}
 	}
 </script>
-
+```
 ![](https://oscimg.oschina.net/oscnet/up-70bd65774562c2de1545983d6b89e19738a.gif)![](https://oscimg.oschina.net/oscnet/up-5e06f9db46957e12bfcd8aeec49f509c855.gif)
 
 index->index.vue页面
-
+```
 <template>
 	<div style="padding-top: 100px;">
 		<h2>首页内容</h2>
@@ -382,13 +385,13 @@ index->index.vue页面
 		}
 	}
 </script>
-
+```
 ![](https://oscimg.oschina.net/oscnet/up-fba104401ce0c5309f5b6bdb513ba8a7224.gif)![](https://oscimg.oschina.net/oscnet/up-2258f13a2594ff99db3a0b9a9b93014825e.gif)
 
 accountList.vue 列表页面（计算属性）
 
 ![](https://oscimg.oschina.net/oscnet/up-dc2864da0ad9a0bffff9585418171257af3.png)
-
+```
 <template>
 	<div style="margin-top: 100px;">
 		<ti :title="title"></ti>
@@ -538,13 +541,13 @@ accountList.vue 列表页面（计算属性）
 		}
 	}
 </script>
-
+```
 ![](https://oscimg.oschina.net/oscnet/up-d046578cdf018f2f760c54da3c905bf5fbc.gif)![](https://oscimg.oschina.net/oscnet/up-729b847273b6eab5df7b5c77d9dee05b4cf.gif)
 
 detail 详情页面（路由传参）
 
 ![](https://oscimg.oschina.net/oscnet/up-5e4ae81926638f376fb8467c6b15973f9cc.png)
-
+```
 <template>
 	<div>
 		<h3>请求参数id为{{id}}的数据</h3>
@@ -576,7 +579,7 @@ detail 详情页面（路由传参）
 		}
 	}
 </script>
-
-相信大家对vue3.0基础用法有了初步的认识，菜鸟的我也在不断学习中，持续更新ing
+```
+相信大家对vue3.0基础用法有了初步的认识，菜鸟的我也在不断学习中，持续更新ing  
 
 官网文档：[https://composition-api.vuejs.org/zh/](https://composition-api.vuejs.org/zh/)
